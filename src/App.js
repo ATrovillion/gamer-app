@@ -1,33 +1,18 @@
-import { Categories } from './categories.styles';
+import Directory from './components/directory/directory.component.jsx';
 
 const App = () => {
-  const directory = [
+  const categories = [
     {
       id: 1,
-      title: 'My Collection',
+      title: 'Collections',
+      imageLocation: 'https://picsum.photos/id/0/200',
     },
     {
       id: 2,
-      title: 'See Contact Info for Group Members',
-    },
-    {
-      id: 3,
-      title: "See Another Member's Collection ",
+      title: 'Contact Info',
+      imageLocation: 'https://picsum.photos/id/60/200',
     },
   ];
-  return (
-    <Categories>
-      {directory.map(({ title }) => (
-        <div className="category-container">
-          <div className="background-image" />
-          <div className="category-body-container">
-            <h2>{title}</h2>
-            <p>Open Now</p>
-          </div>
-        </div>
-      ))}
-    </Categories>
-  );
+  return <Directory categories={categories} />;
 };
-
 export default App;
