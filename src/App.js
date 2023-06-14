@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Categories } from './categories.styles';
 
-function App() {
+const App = () => {
+  const directory = [
+    {
+      id: 1,
+      title: 'My Collection',
+    },
+    {
+      id: 2,
+      title: 'See Contact Info for Group Members',
+    },
+    {
+      id: 3,
+      title: "See Another Member's Collection ",
+    },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Categories>
+      {directory.map(({ title }) => (
+        <div className="category-container">
+          <div className="background-image" />
+          <div className="category-body-container">
+            <h2>{title}</h2>
+            <p>Open Now</p>
+          </div>
+        </div>
+      ))}
+    </Categories>
   );
-}
+};
 
 export default App;
