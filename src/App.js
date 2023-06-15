@@ -1,18 +1,16 @@
-import Directory from './components/directory/directory.component.jsx';
+import { Routes, Route } from 'react-router-dom';
+import Home from './routes/home/home.component';
+import Navigation from './routes/navigation/navigation.component';
+import Contacts from './routes/contacts/contacts.component';
+import SignIn from './routes/sign-in/sign-in.component';
 
-const App = () => {
-  const categories = [
-    {
-      id: 1,
-      title: 'Collections',
-      imageLocation: 'https://picsum.photos/id/0/200',
-    },
-    {
-      id: 2,
-      title: 'Contact Info',
-      imageLocation: 'https://picsum.photos/id/60/200',
-    },
-  ];
-  return <Directory categories={categories} />;
-};
+const App = () => (
+  <Routes>
+    <Route path="/" element={<Navigation />}>
+      <Route index element={<Home />} />
+      <Route path="contacts" element={<Contacts />} />
+      <Route path="sign-in" element={<SignIn />} />
+    </Route>
+  </Routes>
+);
 export default App;
